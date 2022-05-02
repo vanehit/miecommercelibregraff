@@ -1,0 +1,66 @@
+
+
+.btn__Count {
+    width: auto;
+    padding: 12px;
+    font-size: 14px;
+    background: linear-gradient(180deg, #15e215 0%, #207e20 100%);
+    border-radius: 8px;
+    flex: none;
+    display: flex;
+    order: 1;
+    align-self: center;
+    flex-grow: 0;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #FFFFFF;
+    border: none;
+    border-style: none;
+    cursor: pointer;
+    outline: inherit;
+    margin-top: 20px;
+}
+.btn__decrement{
+    width: auto;
+    padding: 12px;
+    font-size: 14px;
+    background-color: #0afa0a;
+    border-radius: 8px;
+    flex: none;
+    display: flex;
+    order: 1;
+    align-self: center;
+    flex-grow: 0;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #371046;
+    border: none;
+    border-style: none;
+    cursor: pointer;
+    outline: inherit;
+    
+}
+.btn__increment{
+    width: auto;
+    padding: 12px;
+    font-size: 14px;
+    background-color: #0afa0a;
+    border-radius: 8px;
+    flex: none;
+    display: flex;
+    order: 1;
+    align-self: center;
+    flex-grow: 0;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #371046;
+    border: none;
+    border-style: none;
+    cursor: pointer;
+    outline: inherit;
+}
+
+
