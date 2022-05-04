@@ -4,11 +4,14 @@ import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import ItemCount from '../ItemCount/ItemCount'
 import CartContext from '../../context/CartContext'
+import { useNotification } from '../../notification/Notification'
 
 
 const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
 
-    const { addItem, isInCart } = useContext(CartContext)
+    const { addItem, isInCart,  getQuantityProd } = useContext(CartContext)
+
+    const { setNotification } = useNotification()
 
     const handleAdd = (count) => {
         const productObj = {
@@ -16,6 +19,7 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
         }
 
         addItem(productObj)
+        setNotification('success', `Se agregaron ${count} ${name} correctamente`)
     }
 
     return (
@@ -40,7 +44,7 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
                 </p>
             </section>           
             <footer className='ItemFooter'>
-                { isInCart(id) ? <Link to='/cart' className='btn__carrito'>Ir al carrito</Link> : <ItemCount onAdd={handleAdd} stock={stock}/> } 
+                { isInCart(id) ? <button><Link to='/cart' className='btn__carrito'>Ir al carrito</Link> </button>: <ItemCount onAdd={handleAdd} stock={stock} initial={getQuantityProd(id)}/> } 
                 {isInCart(id) ? <button><Link to='/cart' style={{textDecoration:'none', alignItems:'center'}}>Finalizar compra </Link></button> : "" }
             </footer>
         </article>

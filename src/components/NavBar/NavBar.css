@@ -1,6 +1,6 @@
 .NavBar{
     background-color: #371046;
-    height: 97px;
+    height: 100px;
     width: 100%;
     max-width: 1530px;
     overflow: hidden;
@@ -16,16 +16,20 @@
     box-shadow: 0 5px 10px #0afa0a;
     z-index: 1;
 }
+
+.navbar-brand{
+  width: 200px;
+  height:80px;
+  display: flex;
+  margin-left: 40px;
+
+}
 .Categories {
     display: flex;
     justify-content: space-around;
     align-items: center;
   }
-  .title{
-    color:#fff;
-	  text-decoration:none;
-    align-items: center
-  }
+
   .Option {
     text-decoration: none;
     border-radius: 25;
