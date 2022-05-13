@@ -1,0 +1,25 @@
+.table__data{
+}
+
+.table-data__title{
+    text-align: center;
+    padding-bottom: 30px;
+    color: #fff;
+}
+
+.table__ItemCart {
+    width: 1000px;
+    margin: 20px auto;
+  }
+
+.thead-dark{
+      color: #fff;
+      background-color:  #371046;
+  }
+.Body__ItemCart{
+    margin-top: 30px;
+}
+.btn__ItemCart{
+  background: linear-gradient(180deg, #15e215 0%, #207e20 100%);
+  padding: 5px;
+}

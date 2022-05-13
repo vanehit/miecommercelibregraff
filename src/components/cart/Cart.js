@@ -1,9 +1,11 @@
-import ItemCart from "../ItemCart/ItemCart"
 import './Cart.css'
 import { useContext, useState } from "react"
 import CartContext from '../../context/CartContext'
+import ItemCart from '../ItemCart/ItemCart'
+import { Link } from "react-router-dom"
 import { getDocs, writeBatch, query, where, collection, documentId, addDoc } from 'firebase/firestore'
 import { firestoreDb } from '../../services/firebase/index'
+import Form from '../Form/ElementsInput'
 
 const Cart = () => {
     const [loading, setLoading] = useState(false)
@@ -26,19 +28,20 @@ const Cart = () => {
             date: new Date()
         }
 
-        const ids = Cart.map(prod => prod.id)
+        const ids = cart.map(prod => prod.id)
 
         const batch = writeBatch(firestoreDb)
 
         const collectionRef = collection(firestoreDb, 'products')
 
         const outOfStock = []
+        
 
         getDocs(query(collectionRef, where(documentId(), 'in', ids)))
             .then(response => {
                 response.docs.forEach(doc => {
                     const dataDoc = doc.data()
-                    const prodQuantity = Cart.find(prod => prod.id === doc.id)?.quantity
+                    const prodQuantity = cart.find(prod => prod.id === doc.id)?.quantity
 
                     if(dataDoc.stock >= prodQuantity) {
                         batch.update(doc.ref, { stock: dataDoc.stock - prodQuantity})
@@ -72,16 +75,32 @@ const Cart = () => {
             <h1>No hay items en el carrito</h1>
         )
     }
+ 
+      return ( 
+        <div align="center">
+            <div>
+                <h1>Mi Carrito</h1>
+            </div>
+            <table >
+                <tbody>
+                    <tr>
+                        <td>{ cart.map(p => <ItemCart key={p.id} {...p}/>) }</td>
+                    </tr>
+                    <tr>
+                        <td align="center"><h3>Total: ${getTotal()}</h3></td>
+                    </tr>
+                    <tr>
+                        <div className='btn__CartCotainer'>
+                            <td align="left"> <button onClick={() => clearCart()} className="btn__Cart">Limpiar carrito</button></td>
+                            <td align="right"><Link to={`/form`}><button onClick={() => createOrder()} className="btn__Cart">Generar Orden</button></Link></td>
 
-    return (     
-        <div>
-            <h1>Cart</h1>
-            { Cart.map(p => <ItemCart key={p.id} {...p}/>) }
-            <h3>Total: ${getTotal()}</h3>
-            <button onClick={() => clearCart()} className="btn__carrito">Limpiar carrito</button>
-            <button onClick={() => createOrder()} className="btn__carrito">Finalizar Compra</button>
-
+                        </div>
+                    </tr>
+                </tbody>
+            </table>
+                
         </div>
     )
 }
+
 export default Cart

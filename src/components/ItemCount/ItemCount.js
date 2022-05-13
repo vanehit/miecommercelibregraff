@@ -27,9 +27,9 @@ const ItemCount = ({stock = 0, initial = 1, onAdd})=> {
             <table >
                 <tbody>
                     <tr>
-                        <td align="left"><button className="btn__decrement" onClick={decrement}>-</button></td>
+                        <td align="left"><button className="btn__Count" onClick={decrement}>-</button></td>
                         <td align="center" style={{fontSize : '20px'}}>{quantity}</td>
-                        <td align="right"><button className="btn__increment" onClick={increment}>+</button></td>
+                        <td align="right"><button className="btn__Count" onClick={increment}>+</button></td>
                     </tr>
                     <tr>
                         <td align="center" colSpan="5"><button className="btn__Count" onClick={() => onAdd(quantity)}>Agregar al carrito</button></td>

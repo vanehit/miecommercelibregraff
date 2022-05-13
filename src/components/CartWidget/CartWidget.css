@@ -1,7 +1,7 @@
 .CartWidget {
     width: auto;
-    padding: 12px;
-    font-size: 8px;
+    padding: 15px;
+    font-size: 12px;
     background: #0afa0a;
     border-radius: 8px;
     flex: none;
@@ -17,8 +17,19 @@
     cursor: pointer;
     outline: inherit;
     font-size: medium;
+    margin: 50px;
 }
 
-.CartImg {
-    margin-right: 10px;
-}
+/*==============================*/
+/*=======Media queries==========*/
+/*==============================*/
+
+@media screen and (max-width: 780px) {
+    .CartWidget {
+      display: none;
+    }
+  
+    
+  }
+  
+

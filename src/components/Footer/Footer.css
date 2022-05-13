@@ -1,0 +1,32 @@
+footer {
+    background-color: #371046;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 20vh;
+    margin-top: 100px;
+    width: 100%;
+    position: sticky;
+}
+
+.Email {
+    padding-top: 30px;
+}
+
+.Social__Email {
+    margin-right: 50px;
+    color: #0afa0a
+  }
+
+.Social-Whatsaap{
+    margin-left: 50px;
+    color: #0afa0a
+  }
+
+.copyright {
+  text-align: center;
+  color: white;
+  padding: 40px 0px 20px;
+  font-size: 18px;
+}

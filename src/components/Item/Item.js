@@ -16,58 +16,33 @@ const Item = ({id, name, img, price}) => {
         console.log('Hice click en Item')
     }
 
-
-
     return (
-        <Box className='Box' onClick={handleClick}>
-            <Card className='Card'>
-            <CardHeader
-                title={name}   
-            />
-            <CardMedia className='Card__Media'
-            component="img"
-            height="300"
-            image={img}
-            alt={img}
-            />
-            <CardContent>
-                <Typography>
-                    <p className="Card__Info">
-                        Precio: ${price}
-                    </p>
-                </Typography>
-                <CardActions className='Card__Footer'>
-                    <Link to={`/detail/${id}`} className='Card__btn'>Ver detalle</Link>
-                </CardActions>
-            </CardContent>
-        </Card>
-      </Box>
+        <Box className='Box__Item' onClick={handleClick}>
+            <Card className='Card__Item'>
+                <CardHeader className='Card__Header'
+                    title={name}   
+                />
+                <CardMedia className='Card__Media'
+                component="img"
+                height="300"
+                image={img}
+                alt={img}
+                />
+                <CardContent>
+                    <Typography>
+                        <p className="Card__Info">
+                            Precio: ${price}
+                        </p>
+                    </Typography>
+                    <CardActions className='Card__Footer'>
+                        <Link to={`/detail/${id}`} className='Card__btn'>Ver detalle</Link>
+                    </CardActions>
+                </CardContent>
+            </Card>
+        </Box>
     );
     
 
 }
-        /*<Box className='ItemCard' onClick={handleClick}>
-            <Card>
-                <CardContent className="Card__title">
-                    <Typography gutterBottom variant='h5' component='div'>
-                        {name}
-                    </Typography>                       
-                    <picture>
-                        <img src={img} alt={name} className="Card__Img"/>
-                    </picture>
-                    <Typography variant='body' color='text.secondary'>
-                        <p className="Card__Info">
-                            Precio: ${price}
-                        </p>
-                    </Typography> 
-                    </CardContent>                    
-                    <CardActions className='Card__Footer'>
-                        <Link to={`/detail/${id}`} className='Card__btn'>Ver detalle</Link>
-                    </CardActions>
-                
-            </Card>
-        </Box>
-    )
-}*/
 
 export default Item

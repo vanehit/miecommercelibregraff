@@ -1,31 +1,31 @@
 
-.CardItem {
-    width: 300px;
-    padding: 30px 0;
+.Box__Detail{
+    width: 400px;
+    margin-top: 170px;
+    margin-left: 400px;
     overflow: hidden;
     position: relative;
     text-align: center;
     margin-bottom: 60px;
-    box-shadow: 0 0 6px #1bf00833;
-    border: 1px solid #371046;
-    border-radius: 10px;
+   
 }
 
-.Header {
+.Card__Detail {
     display: flex;
     flex-direction: column;
     margin-bottom: 10px;
-    border-radius: 25px;
+   
 }
 
-.ItemHeader{
+.Card__title{
     display: flex;
     justify-content: center;
     color:  #15e215;
+    font-size: 25px;
 }
 
-.Info {
-    font-size: 14px;
+.Card__Detail-Info {
+    font-size: 15px;
     display: flex;
     justify-content: space-around;
     color: #371046;
@@ -33,12 +33,37 @@
 }
 
 
-.ItemImg {
-    
+.Card__Media {
     width: 80%;
     height: 200px;
     object-fit: cover;
     border-radius: 10px 0 0 10px;
 }
 
+.Card__Footer{
+    display: flex;
+    justify-content: center;
+}
 
+.btn__ItemDetail {
+    text-decoration: none;
+    margin: 0 10px;
+    width: auto;
+    padding: 12px;
+    font-size: 14px;
+    background: linear-gradient(180deg, #15e215 0%, #207e20 100%);
+    border-radius: 8px;
+    flex: none;
+    display: flex;
+    order: 1;
+    align-self: center;
+    flex-grow: 0;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #371046;
+    border: none;
+    border-style: none;
+    cursor: pointer;
+    outline: inherit;
+}

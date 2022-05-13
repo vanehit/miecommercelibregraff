@@ -303,10 +303,10 @@ const products = [
 ]
 
 const categories = [
-    {id: 'artistica', description: 'Artistica'},
+    {id: 'artistica', description: 'Artística'},
     {id: 'comercial', description: 'Comercial'},
-    {id: 'regaleria', description: 'Regaleria'},
-    {id: 'tecnologia', description: 'Tecnologia'}
+    {id: 'regaleria', description: 'Regalería'},
+    {id: 'tecnologia', description: 'Tecnología'}
 ]
 export const getCategories = () => {
     return new Promise(resolve => {

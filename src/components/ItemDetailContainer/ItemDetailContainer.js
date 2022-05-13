@@ -11,26 +11,27 @@ const ItemDetailContainer = ({ setCart, cart }) => {
     const { productId } = useParams()
 
     useEffect(() => {
+        setLoading(true)
+
+        const docRef = doc(firestoreDb, 'products', productId)
         
-        getDoc(doc(firestoreDb, 'products', productId)).then(response => {
-            console.log(response)
-            const product = { id: response.id, ...response.data()}
-            setProduct(product)
-        })
-
-        return (() => {
-            setProduct()
-        })
-
+        getDoc(docRef).then(response => {
+                const product = { id: response.id, ...response.data()}
+                setProduct(product)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+            .finally(() => {
+                setLoading(false)
+            })
     }, [productId])
 
     if(loading) {
         return(
-            <h1>Cargando...</h1> 
+            <loading text="Cargando..." />
         )
     }
-
-
 
     return (
         <div className="ItemDetailContainer" >

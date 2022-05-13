@@ -1,41 +1,36 @@
-import { useContext, useEffect, useState } from "react"
+import { useContext } from "react"
 import CartContext from "../../context/CartContext"
-import { Link } from "react-router-dom"
+import './ItemCart.css'
 
-const ItemCart = () => {
+const ItemCart = ({ id, name, quantity, price }) => {
+    const { removeItem } = useContext(CartContext)
 
-    const { Cart, removeItem, clearCart } = useContext(CartContext)
-
-    const [ total, setTotal] = useState(0)
-    useEffect(()=>{
-        const handlesumar = () =>{
-            const sumar = Cart.map((saldo) => saldo.subtotal)
-            .reduce((prev, curr) => {
-                return prev + curr;
-            }, 0);
-            setTotal(sumar)
-        };
-        handlesumar();
-    })
-
-    if(Cart.length === 0) {
-        return (
-            <h1>No hay productos</h1>
-        )
+    const handleRemove = (id) => {
+        removeItem(id)
     }
-
     return (
-        <>
-        <h1>Cart</h1>
-        <ul>
-            {
-                Cart.map(prod => <li key={prod.id}>{prod.name}  cantidad: {prod.quantity} precio uni: {prod.price}  subtotal: {prod.quantity * prod.price} <button onClick={() => removeItem(prod.id)}>X</button></li>)
-            }   
-        </ul>
-        <p>Total: {total}</p>
-            <button style={{textDecoration:'none', alignItems:'center'}} onClick={()=> clearCart()}>Limpiar Carrito</button>   
-            <button> <Link to='/' style={{textDecoration:'none', alignItems:'center'}}>Terminar compra </Link></button>
-        </>
+        <div className='table__dataItemCart'>
+            <table className="table__ItemCart">
+            <thead className="thead-dark">
+                        <tr>
+                            <th scope="col">Cantidad</th>
+                            <th scope="col">Artículo</th>
+                            <th scope="col">Precio x unidad</th>
+                            <th scope="col">Total</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>  
+                <tbody className="Body__ItemCart">
+                    <tr>
+                        <th scope="col">{quantity}</th>
+                        <th scope="col">{name}</th>
+                        <th scope="col">${price}</th>
+                        <th scope="col"> Subtotal: ${price * quantity}</th>
+                        <th scope="col"> <button className='btn__ItemCart' onClick={() => handleRemove(id)}>X</button></th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     )
 }
 
