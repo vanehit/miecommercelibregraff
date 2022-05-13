@@ -29,7 +29,7 @@ http://localhost:3000
 
 ## Backend
 
-Para  descargar y correr este proyecto, tienen que generar su backend en firebase y si lo hacen de forma local con data fake. En el archivo .env estan las variables que deben ir para poder llenarlas con sus datos de Firebase.
+Para  descargar y correr este proyecto, tienen que generar su backend en firebase y si lo hacen de forma local con asyncmock. En el archivo .env estan las variables que deben ir para poder llenarlas con sus datos de Firebase.
 
 
 ## Estructura
